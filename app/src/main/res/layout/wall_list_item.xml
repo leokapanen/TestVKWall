@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/list_row_bg"
+    android:orientation="vertical">
+
+    <TableRow
+        android:id="@+id/user_row"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:weightSum="100">
+
+        <TextView
+            android:id="@+id/user_label"
+            style="@style/ListRowSlimText"
+            android:text="@string/wall_list_user_label" />
+
+        <Space
+            android:layout_width="5dp"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:id="@+id/user_value"
+            style="@style/ListRowWideText" />
+
+    </TableRow>
+
+    <TableRow
+        android:id="@+id/text_row"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:weightSum="100">
+
+        <TextView
+            android:id="@+id/text_label"
+            style="@style/ListRowSlimText"
+            android:text="@string/wall_list_text_label" />
+
+        <Space
+            android:layout_width="5dp"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:id="@+id/text_value"
+            style="@style/ListRowWideText" />
+
+    </TableRow>
+
+    <TableRow
+        android:id="@+id/photo_row"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:weightSum="100">
+
+        <TextView
+            android:id="@+id/photo_label"
+            style="@style/ListRowSlimText"
+            android:text="@string/wall_list_photo_label" />
+
+        <Space
+            android:layout_width="5dp"
+            android:layout_height="wrap_content" />
+
+        <FrameLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="100">
+
+            <ImageView
+                android:id="@+id/photo_value"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/list_row_image_size"
+                android:layout_gravity="center"
+                android:padding="5dp"
+                android:scaleType="centerInside" />
+
+        </FrameLayout>
+
+
+    </TableRow>
+
+</TableLayout>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.orangegangsters.github.swipyrefreshlayout.library.SwipyRefreshLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/swipy_refresh_layout"
+    android:layout_width="wrap_content"
+    android:layout_height="match_parent"
+    app:direction="both">
+
+    <ListView
+        android:id="@+id/wall_list"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/light_grey"
+        android:divider="@color/light_grey"
+        android:dividerHeight="@dimen/list_spacing"
+        android:listSelector="@android:color/transparent"
+        android:paddingLeft="@dimen/list_spacing"
+        android:paddingRight="@dimen/list_spacing"
+        android:scrollbarStyle="outsideOverlay" />
+
+</com.orangegangsters.github.swipyrefreshlayout.library.SwipyRefreshLayout>

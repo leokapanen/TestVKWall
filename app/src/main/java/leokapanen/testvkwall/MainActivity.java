@@ -1,37 +1,65 @@
 package leokapanen.testvkwall;
 
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.view.Menu;
-import android.view.MenuItem;
+import android.support.v7.widget.Toolbar;
 
-public class MainActivity extends AppCompatActivity {
+import leokapanen.login.Auth;
+import leokapanen.login.LoginFragment;
+import leokapanen.wall.WallFragment;
+
+public class MainActivity extends AppCompatActivity implements IWallActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-    }
+        setContentView(R.layout.main_activity);
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_main, menu);
-        return true;
-    }
+        setSupportActionBar((Toolbar) findViewById(R.id.toolbar));
+        getSupportActionBar().setDisplayHomeAsUpEnabled(false);
+        getSupportActionBar().setDisplayUseLogoEnabled(false);
 
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
+        if (!Auth.INSTANCE.isNeedLogin()) {
+            switchFragment(new WallFragment());
         }
+    }
 
-        return super.onOptionsItemSelected(item);
+    @Override
+    protected void onResume() {
+        super.onResume();
+        if (Auth.INSTANCE.isNeedLogin()) {
+            switchFragment(new LoginFragment());
+        }
+    }
+
+    /**
+     * Sets activity title
+     *
+     * @param title
+     */
+    @Override
+    public void setTitle(String title) {
+        if (title != null) {
+            getSupportActionBar().setTitle(title);
+        }
+    }
+
+    /**
+     * Changes fragment into activity
+     *
+     * @param fragment
+     */
+    @Override
+    public void switchFragment(Fragment fragment) {
+        FragmentManager fm = getSupportFragmentManager();
+        FragmentTransaction fragmentTransaction = fm.beginTransaction();
+
+        fragmentTransaction.replace(R.id.container, fragment);
+        fragmentTransaction.addToBackStack(null);
+
+        fragmentTransaction.commit();
     }
 }

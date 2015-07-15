@@ -1,6 +1,15 @@
 <resources>
     <string name="app_name">TestVKWall</string>
 
-    <string name="hello_world">Hello world!</string>
-    <string name="action_settings">Settings</string>
+    <string name="action_refresh">Refresh</string>
+    <string name="action_logout">Log out</string>
+
+    <string name="msg_loading">Loading</string>
+
+    <string name="title_login">Authorization</string>
+    <string name="title_wall">User Wall</string>
+
+    <string name="wall_list_user_label">User:</string>
+    <string name="wall_list_text_label">Text:</string>
+    <string name="wall_list_photo_label">Photo:</string>
 </resources>
